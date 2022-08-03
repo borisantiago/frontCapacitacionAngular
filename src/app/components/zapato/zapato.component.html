@@ -1,0 +1,91 @@
+
+
+
+<div class="container">
+    <ng-container *ngIf="zapato.zapNombre!= undefined">
+        <div class="card box-shadow-sm">
+          <div class="card-header">
+              <h5 style="margin-bottom: 0px;">Ver producto</h5>
+          </div>
+          <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-8">
+                      <div class="row">
+    
+                        <dt class="col-sm-4 ">Titulo de producto:&nbsp;</dt>
+                        <dd class="col-sm-8 font-size-lg"><span style="color: #2E187F;" ><b> {{zapato.zapCodigo}}</b></span></dd>
+    
+                        <dt class="col-sm-4 ">Stock:&nbsp;</dt>
+                        <dd class="col-sm-8 font-size-lg"><span style="color: #2E187F;" ><b> {{zapato.zapStock}}</b></span></dd>
+    
+                        <dt class="col-sm-4 ">Precio:&nbsp;</dt>
+                        <dd class="col-sm-8 font-size-lg"><span style="color: #2E187F;" ><b> ${{zapato.zapPrecio}}</b></span></dd>
+                        
+                        <dt class="col-sm-4 ">Color:&nbsp;</dt>
+                        <dd class="col-sm-8 font-size-lg"><span style="color: #2E187F;" ><b> {{zapato.zapColor}}</b></span></dd>
+                        
+    
+                        <dt class="col-sm-4" >Categoria:&nbsp;</dt>
+                        <dd class="col-sm-8 font-size-lg"><span style="color: #2E187F;"><b > {{zapato.zapModelo}}</b></span></dd>
+    
+                        <dt class="col-sm-4" >Genero:&nbsp;</dt>
+                        <dd class="col-sm-8 font-size-lg"><span style="color: #2E187F;"><b > {{zapato.zapGenero}}</b></span></dd>
+    
+    
+                        <dt class="col-sm-4">Talla</dt>
+                        <dd class="col-sm-8 font-size-lg"><span style="color: #2E187F;" ><b> {{zapato.zapTalla}}</b></span></dd>
+    
+                      </div>
+                </div>
+                  <div class="col-lg-4">
+                    <div class="row">
+                      <div class="col-lg-12 form-group">	
+                        <a class="btn btn-block btn-outline-success mb-2" [routerLink]="['/zapato/actualizar/', zapato.zapCodigo]">Editar</a>
+    
+                        <dt class="text-center">Portada</dt>
+                          
+                          <div class="custom-file">
+    
+                            <div class="col-lg-12 mt-2">
+                              <img src="assets/images/mercurial.png" width="300px" alt="Gallery thumbnail">
+                              
+                            </div>
+                            
+                          </div>
+                      </div>
+    
+                      <div class="col-lg-12" >
+                      </div>
+                    </div>  
+                  </div>
+           
+    
+                  
+    
+    
+                </div>
+          </div>
+    
+            <br>
+          <div class="card-footer">
+              <a class="btn btn-warning" [routerLink]="['/productos']" routerLinkActive="router-link-active" >Regresar</a>
+          </div>
+    
+      </div> 
+      </ng-container>
+    
+      <ng-container *ngIf="zapato.zapNombre == undefined || zapato.zapNombre == 'null'">
+        <div class="card-body">
+          <h3 class="text-center">No se encontró ningún producto</h3>
+          
+          <div class="row">
+              <div class="col-3 mx-auto">
+                  <img src="assets/images/error.png" alt="" style="width: 90%;">
+              </div>
+          </div>
+        </div>
+      </ng-container>
+</div>
+
+  
+

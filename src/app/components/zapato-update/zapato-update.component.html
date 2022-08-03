@@ -1,0 +1,75 @@
+
+<div class="border-bottom pt-5 mt-2 mb-3">
+  <!--   
+  <h2 class="mt-2 mt-md-4 mb-3 pt-3">Productos</h2>
+    <div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
+      <p class="text-muted">Este módulo lista todos los productos de la tienda.</p>
+      
+    </div>
+  -->
+  </div>
+
+  <ng-container *ngIf="zapato">
+    <form #actualizarForm="ngForm" (ngSubmit)="actualizar(actualizarForm)">
+      <div class="card box-shadow-sm">
+          <div class="card-header">
+              <h5 style="margin-bottom: 0px;">Actualizar <span style="color: #146D76;" ><b> {{zapato.titulo}} </b></span> </h5>
+          </div>
+          <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-8">
+                      <div class="row">
+                        <div class="col-lg-12 form-group">	
+                            <label for="">Titulo de zapato</label>
+                            <input type="text" class="form-control" placeholder="Titulo de zapato" required name="zapNombre" [(ngModel)]="zapato.zapNombre">
+                        </div>
+                        <div class="col-lg-4 form-group">	
+                            <label for="">Stock : </label> <span style="color: #146D76;" ><b> {{zapato.zapStock}} unidades</b></span>
+                            
+
+                        </div>
+                        <div class="col-lg-4 form-group">	
+                            <label for="">Precio</label>
+                            <input type="number" class="form-control" placeholder="Precio" required name="zapPrecio" [(ngModel)]="zapato.zapPrecio">
+                        </div>
+
+                        <div class="col-lg-4 form-group">	
+                          <label for="">Color</label>
+                          <input type="number" class="form-control" placeholder="Color" required name="zapColor" [(ngModel)]="zapato.zapColor">
+                        </div>
+                        
+                        <div class="col-lg-4 form-group">	
+                          <label for="">Modelo</label>
+                          <input type="number" class="form-control" placeholder="Modelo" required name="zapModelo" [(ngModel)]="zapato.zapModelo">
+                      </div>
+                        
+                                
+  
+                      </div>
+                  </div>
+
+            
+
+                </div>
+          </div>
+          <div class="card-footer">
+              <button  class="btn btn-primary mr-3" type="submit">Actualizar producto</button>
+              
+              
+              <a class="btn btn-warning" [routerLink]="['/zapato/',zapato.zapCodigo]" routerLinkActive="router-link-active" >Regresar</a>
+          </div>
+      </div> 
+    </form>
+  </ng-container>
+
+  <ng-container *ngIf="zapato.zapNombre == undefined">
+    <div class="card-body">
+      <h3 class="text-center">No se encontró ningún producto</h3>
+      
+      <div class="row">
+          <div class="col-3 mx-auto">
+              <img src="assets/img/error.png" alt="" style="width: 90%;">
+          </div>
+      </div>
+    </div>
+  </ng-container>

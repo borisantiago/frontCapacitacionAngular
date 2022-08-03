@@ -1,0 +1,179 @@
+
+<main>
+
+      <section class="container pt-3 pb-5 pb-md-6 mb-2 mb-lg-0">
+
+        <div class="row mb-3" >
+          <div class="col-12">
+            
+          </div>
+        </div>
+
+        <!-- Toolbar + Pagination -->
+        <div class="row mb-4 pb-2">
+          <div class="col-md-3 pr-lg-4 mb-3 mb-md-0">
+
+            <!-- Show / hide filters on Desktop -->
+            <div class="d-none d-lg-block">
+              <h3> Filtros:</h3>
+            </div>
+
+          </div>
+
+          <div class="col-md-9">
+            <div class="d-flex align-items-center banner" >
+              <div class="row">
+                <div class="col-6">
+                    <label for="sorting-top" class="font-weight-bold text-nowrap mr-2 pr-1 d-none d-lg-block">Ordenar por</label>
+                    <select id="sorting-top" class="custom-select" name="sort_by" >
+                      <option value="Defecto">Defecto</option>
+                      <option value="Popularidad">Popularidad</option>
+                      <option value="+-Precio">Mayor - menor precio</option>
+                      <option value="-+Precio">Menor - mayor precio</option>
+                      <option value="azTitulo">A - Z</option>
+                      <option value="zaTitulo">Z - A</option>
+                    </select>
+                  </div>
+                  <div class="col-6 text-right" >
+                    <label for="pager-top" class="font-weight-bold text-nowrap mr-2 pr-1 d-none d-lg-block">Mostrar</label>
+                    <select id="pager-top" class="custom-select" name="pageSize" >
+                      <option value="3">3</option>
+                      <option value="15">15</option>
+                      <option value="21">21</option>
+                      <option value="30">30</option>
+                    </select>
+                    <span class="font-size-sm text-muted text-nowrap ml-2 d-none d-lg-block">productos por página</span>
+                  </div>
+              </div>
+                
+              <nav class="ml-auto" aria-label="Pagination">
+                <ul class="pagination mb-0">
+                 
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <div class="row flex-lg-nowrap">
+
+
+          
+          <div class="col-lg-3 pr-lg-4">
+
+
+                <div class="card border-bottom">
+                  <div class="card-header py-3" id="filter-panel">
+                    <h6 class="accordion-heading">
+                      <a href="#filter" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="filter">
+                        Buscar Producto
+                        <span class="accordion-indicator"></span>
+                        
+                      </a>
+                      <input type="text">
+                    </h6>
+                  </div>
+                  
+                </div>
+                <!-- Category -->
+                <div class="card border-bottom">
+                  <div class="card-header pt-0 pb-3" id="category-panel">
+                    <h6 class="accordion-heading">
+                      <a href="#category" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="category">
+                        Categorias
+                        <span class="accordion-indicator"></span>
+                      </a>
+                    </h6>
+                  </div>
+                  <div class="collapse show" id="category" aria-labelledby="category-panel">
+                    <div class="cs-widget-data-list cs-filter">
+                     
+                      <ul class="cs-filter-list list-unstyled pr-3" style="height: 12rem;" data-simplebar data-simplebar-auto-hide="false">
+                        
+                        <li class="cs-filter-item">
+                          <div class="custom-control custom-checkbox">
+                            <input type="radio" name="group1"  class="custom-control-input" id="blazers-todos" value="todos" >
+                            <label for="blazers-todos" class="custom-control-label">
+                              <span class="cs-filter-item-text">Todos</span>
+                              <span class="pl-1 text-muted">()</span>
+                            </label>
+                          </div>
+                        </li>
+
+                        <li class="cs-filter-item" >
+                          <div class="custom-control custom-checkbox">
+                            <input type="radio" name="group1"  class="custom-control-input">
+                            <label for="blazers" class="custom-control-label">
+                              <span class="cs-filter-item-text"></span>
+                              
+                              <span class="pl-1 text-muted">()</span>
+                              
+                            </label>
+                          </div>
+                        </li>
+                        
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                
+
+            
+           
+          </div>
+
+
+          <!-- Product grid -->
+          <div class="col">
+            
+            
+
+            <div  class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3" *ngIf="productos.length > 0" data-filters-columns>
+
+              <ng-container *ngFor="let item of productos">
+                <div class="col pb-sm-2 mb-grid-gutter">
+                  <div class="card ">
+                    <div class="card-product-img">
+                        <i class="fa fa-shopping-cart fa-2x mr-5 text-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"></i>
+
+                      <a  [routerLink]="['/zapato/',item.zapCodigo]" routerLinkActive="router-link-active" class="card-img-top">
+                        <img src="assets/images/mercurial.png" alt="Product image" width="200px">
+                      </a>
+                      
+                    </div>
+                    <div class="card-body pb-2">
+                        <h3 class="mb-2">
+                            <a [routerLink]="['/zapato/',item.zapCodigo]" class="nav-link">{{item.zapNombre}}</a>
+
+                          </h3>
+                        <h3 class="mb-2">
+                            <a [routerLink]="['/zapato/',item.zapCodigo]" class="nav-link">{{item.titulo}}</a>
+                          </h3>
+                          <div class="d-flex align-items-center" >
+                            <span class="h5 d-inline-block mb-0">${{item.zapPrecio}}</span>
+                          </div>  
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-12">
+
+                              <a href="">{{item.zapModelo}}</a>
+                              
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            
+          
+            </div>
+
+          </div>
+        </div>
+      </section>
+</main>
+    
+
+
