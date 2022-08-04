@@ -23,18 +23,16 @@ export class PersonaService {
     return this.http.post(apiUrl, persona).pipe(catchError(this.error));
    }
    
-   error(error: HttpErrorResponse){ 
-    let errorMessage = '';
-    if(error.error instanceof ErrorEvent){
-      errorMessage = error.error.message;
-    }
+  error(error: HttpErrorResponse){ 
+      let errorMessage = '';
+      if(error.error instanceof ErrorEvent){
+        errorMessage = error.error.message;
+      }
 
     console.log(errorMessage);
-    return throwError(()=>{
-      return errorMessage;
-    })
-    
-    
+      return throwError(()=>{
+        return errorMessage;
+      })
   }
 
    

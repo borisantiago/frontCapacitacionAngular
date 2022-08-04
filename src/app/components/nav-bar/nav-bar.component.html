@@ -4,7 +4,6 @@
 
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-dark" href="#">Inicio</a>
-      <a class="p-2 text-dark" routerLink="/marca">Marcas</a>
       <a class="p-2 text-dark" routerLink="/productos">Productos</a>
       <a class="p-2 text-dark" href="#">Tipos de producto</a>
     </nav>
@@ -14,8 +13,17 @@
             <i class="fa fa-shopping-cart fa-2x mr-5 text-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"></i>
             <div class="cart-no">5</div>
         </a>
-        <a class="btn btn-outline-primary" style="margin-left: 25px;" [routerLink]="'/login'">Iniciar sesión</a>
-
+        <a class="btn btn-outline-primary" style="margin-left: 25px;" [routerLink]="'/login'" *ngIf="user_role == undefined" id="iSesion">Iniciar sesión</a>
+        <div class="dropdown">
+          <button class="btn btn-info dropdown-toggle" *ngIf="user_role != undefined" style="margin-left: 25px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            {{user_nombre}} {{user_apellido}} ({{user_role}})
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li class="item">&nbsp;&nbsp;Role: <b><span style="color: rgb(25, 27, 70);">{{user_role}}</span></b></li>
+            <li><a class="dropdown-item" [routerLink]="['/usuario/',user_id]">Perfil</a></li>
+            <li><a class="dropdown-item" (click)="logout()" id="cSesion">Cerrar sesión</a></li>
+          </ul>
+        </div>
     </div>
 
   </div>
@@ -29,9 +37,13 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="#">{{zapCanasta}}</a>
             </li>
           </ul>
+          
         </div>
+        
+          <button class="btn btn-block btn-outline-success mb-2" [routerLink]="['/carrito']" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">HACER PEDIDO</button>
+        
       </div>
    

@@ -11,6 +11,8 @@ export class ZapatoComponent implements OnInit {
 
   public zapato:any = {};
   public zapCodigo:any;
+  public user_role : any = undefined;
+
   constructor(
     private productoService: ProductosService,
     private _route: ActivatedRoute
@@ -19,8 +21,10 @@ export class ZapatoComponent implements OnInit {
     this._route.params.subscribe(
       params=>{
         this.zapCodigo = params['zapCodigo'];
-        console.log(this.zapCodigo);
       });
+
+    this.user_role = localStorage.getItem('user_role');
+
   
    }
 
@@ -28,8 +32,6 @@ export class ZapatoComponent implements OnInit {
     this.productoService.getZapato(this.zapCodigo).subscribe(
       response=>{
         this.zapato = response;
-        console.log(this.zapato);
-        
       }
     )
     

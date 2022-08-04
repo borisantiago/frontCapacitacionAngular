@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos.service';
 declare var iziToast:any;
 
@@ -16,12 +16,11 @@ export class ZapatoUpdateComponent implements OnInit {
   constructor(
     private productoService: ProductosService,
     private _route: ActivatedRoute,
-    //private _router: Route
+    private _router: Router
   ) { 
     this._route.params.subscribe(
       params=>{
         this.zapCodigo = params['zapCodigo'];
-        console.log(this.zapCodigo);
       });
   }
 
@@ -29,7 +28,6 @@ export class ZapatoUpdateComponent implements OnInit {
     this.productoService.getZapato(this.zapCodigo).subscribe(
       response=>{
         this.zapato = response;
-        console.log(this.zapato);
         
       }
     )
@@ -37,22 +35,19 @@ export class ZapatoUpdateComponent implements OnInit {
 
   actualizar(actualizarForm: any){
     if(actualizarForm.valid){
-      console.log(this.zapato);
-
       var data :any = {};
       
-
       data.zapCodigo = this.zapato.zapCodigo;
       data.zapNombre = this.zapato.zapNombre;
-      data.zapTalla = this.zapato.zapTalla;
-      data.zapCodigo = this.zapato.zapCodigo;
-      data.zapColor = this.zapato.zapColor;
       data.zapModelo = this.zapato.zapModelo;
-      data.zapPrecio = this.zapato.zapPrecio;
       data.zapGenero = this.zapato.zapGenero;
+      data.zapColor = this.zapato.zapColor;
+      data.zapTalla = this.zapato.zapTalla;
+      data.zapStock = this.zapato.zapStock;
+      data.zapPrecio = this.zapato.zapPrecio;
 
+      console.log(data);      
 
-    
       this.productoService.updateZapato(data).subscribe(
         response=>{
           console.log(response);
@@ -65,7 +60,7 @@ export class ZapatoUpdateComponent implements OnInit {
             message: 'Se actualizo correctamente el producto.'
           });
 
-          //this._router.navigate(['/productos']);
+          this._router.navigate(['/zapato/', this.zapCodigo]);
           
         },
         error=>{

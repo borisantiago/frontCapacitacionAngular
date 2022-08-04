@@ -94,23 +94,29 @@
                           <div class="custom-control custom-checkbox">
                             <input type="radio" name="group1"  class="custom-control-input" id="blazers-todos" value="todos" >
                             <label for="blazers-todos" class="custom-control-label">
-                              <span class="cs-filter-item-text">Todos</span>
+                              <span class="cs-filter-item-text">&nbsp;Todos</span>
                               <span class="pl-1 text-muted">()</span>
                             </label>
                           </div>
                         </li>
 
+                        <ng-container *ngIf="productos">
                         <li class="cs-filter-item" >
-                          <div class="custom-control custom-checkbox">
-                            <input type="radio" name="group1"  class="custom-control-input">
-                            <label for="blazers" class="custom-control-label">
-                              <span class="cs-filter-item-text"></span>
-                              
+                            <div class="custom-control custom-checkbox" *ngFor="let item of productos">
+                              <input type="radio" name="group1"  class="custom-control-input">
+                              <label for="blazers"  class="custom-control-label">
+                                <span class="cs-filter-item-text">&nbsp; {{item.zapTalla}}</span>
                               <span class="pl-1 text-muted">()</span>
-                              
-                            </label>
-                          </div>
+                              </label>
+                            </div>
                         </li>
+                      </ng-container>
+                      <ng-container *ngIf="!productos">
+                        No existen tallas disponibles
+                      </ng-container>
+
+                      
+                      
                         
                       </ul>
                     </div>
@@ -135,7 +141,7 @@
                 <div class="col pb-sm-2 mb-grid-gutter">
                   <div class="card ">
                     <div class="card-product-img">
-                        <i class="fa fa-shopping-cart fa-2x mr-5 text-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"></i>
+                        <i (click)="agregarAlCarrito(item.zapCodigo)" class="fa fa-shopping-cart fa-2x mr-5 text-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"></i>
 
                       <a  [routerLink]="['/zapato/',item.zapCodigo]" routerLinkActive="router-link-active" class="card-img-top">
                         <img src="assets/images/mercurial.png" alt="Product image" width="200px">
@@ -144,7 +150,7 @@
                     </div>
                     <div class="card-body pb-2">
                         <h3 class="mb-2">
-                            <a [routerLink]="['/zapato/',item.zapCodigo]" class="nav-link">{{item.zapNombre}}</a>
+                            <a [routerLink]="['/zapato/',item.zapCodigo]" class="nav-link">{{item.zapNombre | uppercase}}</a>
 
                           </h3>
                         <h3 class="mb-2">
