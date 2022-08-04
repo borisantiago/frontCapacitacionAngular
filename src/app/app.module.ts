@@ -12,10 +12,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { BASE_URL } from './models/constants';
 import { environment } from 'src/environments/environment';
 import { ZapatoComponent } from './components/zapato/zapato.component';
-import { ZapatoUpdateComponent } from './components/zapato-update/zapato-update.component';
+import { ZapatoUpdateComponent } from './components/zapato/zapato-update/zapato-update.component';
 import { LoginComponent } from './components/login/login.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { FiltersPipe } from './pipes/filters.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     ZapatoUpdateComponent,
     LoginComponent,
     PerfilComponent,
-    CarritoComponent
+    CarritoComponent,
+    FiltersPipe
   ],
   imports: [
     BrowserModule,

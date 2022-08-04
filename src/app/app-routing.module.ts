@@ -5,7 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ProductosComponent } from './components/productos/productos.component';
-import { ZapatoUpdateComponent } from './components/zapato-update/zapato-update.component';
+import { ZapatoUpdateComponent } from './components/zapato/zapato-update/zapato-update.component';
 import { ZapatoComponent } from './components/zapato/zapato.component';
 
 const routes: Routes = [
@@ -14,11 +14,12 @@ const routes: Routes = [
   {path:'productos', component: ProductosComponent},
   {path:'zapato/:zapCodigo', component: ZapatoComponent},
   {path:'zapato/actualizar/:zapCodigo', component: ZapatoUpdateComponent},
-  {path:'usuario/:perCodigo', component: PerfilComponent},
+  {path:'usuario/:id', component: PerfilComponent},
   {path:'carrito', component: CarritoComponent},
 
 
 
+  
   {path:'**', redirectTo: ''},
 
 ];

@@ -22,6 +22,11 @@ export class PersonaService {
     let apiUrl = `${this.endpoint}persona/login`;
     return this.http.post(apiUrl, persona).pipe(catchError(this.error));
    }
+
+   getPersonaId(id:any){
+    let apiUrl = `${this.endpoint}persona/`+id;
+    return this.http.get(apiUrl, id).pipe(catchError(this.error));
+   }
    
   error(error: HttpErrorResponse){ 
       let errorMessage = '';

@@ -38,10 +38,10 @@
               </div>
             </ng-container>
 
-            <ng-container >
+            <ng-container>
               <div class="bg-secondary rounded mb-5" >
                 <!-- Item -->
-                <div class="media px-2 px-sm-4 py-4 border-bottom" >
+                <div class="media px-2 px-sm-4 py-4 border-bottom"  >
                   <a [routerLink]="" style="min-width: 80px;">
                     <img src="assets/images/mercurial.png" width="200" alt="Product thumb">
                   </a>
@@ -49,23 +49,23 @@
                     <div class="d-sm-flex">
                       <div class="pr-sm-3 w-100" style="max-width: 16rem;">
                         <h3 class="font-size-sm mb-3">
-                          <a [routerLink]="" class="nav-link font-weight-bold">11111</a>
+                          <a [routerLink]="" class="nav-link font-weight-bold"></a>
                         </h3>
-                        <ul class="list-unstyled font-size-xs mt-n2 mb-2">
-                          <li class="mb-0"><span class="text-muted">11111</span> 22222</li>
+                        <ul class="list-unstyled font-size-xs mt-n2 mb-2" >
+                          <li class="mb-0"><span class="text-muted"></span> {{carrito}}</li>
                         </ul>
                       </div>
                       <div class="d-flex pr-sm-3" >
                         <input type="number" class="form-control form-control-sm bg-light mr-3" style="width: 4.5rem;" readonly value="77">
                             <div class="text-nowrap pt-2">
-                              <strong class="text-danger mr-2">$202020</strong> 
-                              <span class="font-size-xs text-muted">$555</span>
+                              <strong class="text-danger mr-2">${{carrito.zapPrecio}}</strong> 
+                              <span class="font-size-xs text-muted">${{carrito.zapPrecio}}</span>
                             </div>
                       </div>
                       <div class="d-flex pr-sm-3" >
                         <input type="number" class="form-control form-control-sm bg-light mr-3" style="width: 4.5rem;" readonly value="5">
                             <div class="text-nowrap pt-2">
-                              <span style="font-size: 1.2rem !important;" class="font-size-xs text-muted">$8888</span>
+                              <span style="font-size: 1.2rem !important;" class="font-size-xs text-muted">${{carrito.perDireccion}}</span>
                             </div>
                       </div>
                       <div class="d-flex align-items-center flex-sm-column text-sm-center ml-sm-auto pt-3 pt-sm-0">
@@ -112,18 +112,14 @@
                     <div class="row" >
                       <div class="col-lg-12">
                         <dl>
+                          <dt>Nombres</dt>
+                          <dd>{{user_nombre}} {{user_apellido}}</dd>
+
                           <dt>Destinatario</dt>
-                          <dd>555</dd>
-                          <dt>Dirección</dt>
-                          <dd>6666</dd>
-                          <dd>77
-                            <span > -  - </span>
-                            <span >2662</span>
-                          </dd>
-                          <dt >Código postal</dt>
-                          <dd>llll</dd>
-                          <dt >Teléfono</dt> 
-                          <dd >oooo</dd>
+                          <dd>{{user_direccion}}</dd>
+                          
+                          <dt >Cedula ciudadania</dt>
+                          <dd>{{user_identificacion}}</dd>
                         </dl>
                       </div>
                       
@@ -215,21 +211,18 @@
                   <ul class="list-unstyled border-bottom mb-0 p-4">
                     <li class="d-flex justify-content-between mb-2">
                       <span class="font-weight-bold">Subtotal:</span>
-                      <span class="font-weight-bold">$101010</span>
+                      <span class="font-weight-bold">${{carrito.pedSubtotal}}</span>
                     </li>
                     <li class="d-flex justify-content-between mb-2">
                       <span>Envio:</span>
-                      <span>$55</span>
+                      <span>$5</span>
                     </li>
-                    <li class="d-flex justify-content-between mb-2">
-                      <span>Descuento:</span>
-                      <span>- $1414</span>
-                    </li>
+                    
                     
                   </ul>
                   <div class="d-flex justify-content-between p-4">
                     <span class="h5 mb-0">Total a pagar:</span>
-                    <span class="h5 mb-0">$45464</span>
+                    <span class="h5 mb-0">$${{carrito.pedTotal}}</span>
                   </div>
                 </div>
                 <ng-container >

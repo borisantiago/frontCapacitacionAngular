@@ -65,7 +65,7 @@
                 <div class="card border-bottom">
                   <div class="card-header py-3" id="filter-panel">
                     <h6 class="accordion-heading">
-                      <a href="#filter" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="filter">
+                      <a href="#filter" id="filtro" name="filtro" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="filter">
                         Buscar Producto
                         <span class="accordion-indicator"></span>
                         
@@ -103,6 +103,9 @@
                         <ng-container *ngIf="productos">
                         <li class="cs-filter-item" >
                             <div class="custom-control custom-checkbox" *ngFor="let item of productos">
+                            <!-- 
+                            <div class="custom-control custom-checkbox" *ngFor="let item of productos | filters: #filtro">
+                            -->
                               <input type="radio" name="group1"  class="custom-control-input">
                               <label for="blazers"  class="custom-control-label">
                                 <span class="cs-filter-item-text">&nbsp; {{item.zapTalla}}</span>
@@ -125,8 +128,6 @@
 
                 
 
-            
-           
           </div>
 
 
@@ -167,7 +168,7 @@
                               <a href="">{{item.zapModelo}}</a>
                               
                             </div>
-                          </div>
+                          </div> 
                     </div>
                   </div>
                 </div>

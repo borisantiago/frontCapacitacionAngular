@@ -1,2 +1,102 @@
 
-<h3>Hola {{usuario.perNombre}}</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-10 centrar" >
+            <div class="card">
+                <div class="card-body">
+                    <ng-container *ngIf="usuario.perNombre!= undefined">
+                        <div class="card box-shadow-sm">
+                          <div class="card-header">
+                              <h5 style="margin-bottom: 0px;">Ver Información</h5>
+                          </div>
+                          <div class="card-body">
+                
+                                <div class="row">
+                
+                                  <div class="col-lg-8">
+                                      <div class="row">
+                
+                
+                    
+                                        <dt class="col-sm-5 ">Nombres:&nbsp;</dt>
+                                        <dd class="col-sm-7 font-size-lg"><span style="color: #2E187F;" ><b> {{usuario.perNombre}} {{usuario.perApellido}}</b></span></dd>
+                    
+                                        <dt class="col-sm-5 ">Email:&nbsp;</dt>
+                                        <dd class="col-sm-7 font-size-lg"><span style="color: #2E187F;" ><b> {{usuario.perEmail}}</b></span></dd>
+                    
+                                        <dt class="col-sm-5 ">Fecha de nacimiento:&nbsp;</dt>
+                                        <dd class="col-sm-7 font-size-lg"><span style="color: #2E187F;" ><b> {{usuario.perFechaNacimiento}}</b></span></dd>
+                                        
+                                        <dt class="col-sm-5 ">Cedula Identificación:&nbsp;</dt>
+                                        <dd class="col-sm-7 font-size-lg"><span style="color: #2E187F;" ><b> {{usuario.perIdentificacion}}</b></span></dd>
+                                        
+                    
+                                        <dt class="col-sm-5" >Género:&nbsp;</dt>
+                                        <dd class="col-sm-7 font-size-lg"><span style="color: #2E187F;"><b > {{usuario.perGenero}}</b></span></dd>
+                    
+                                        <dt class="col-sm-5" >Rol:&nbsp;</dt>
+                                        <dd class="col-sm-7 font-size-lg"><span style="color: #2E187F;"><b > {{usuario.perRole}}</b></span></dd>
+                    
+                    
+                                        <dt class="col-sm-5">Talla</dt>
+                                        <dd class="col-sm-7 font-size-lg"><span style="color: #2E187F;" ><b> {{usuario.perTalla}}</b></span></dd>
+                    
+                                      </div>
+                                </div>
+                                  <div class="col-lg-4">
+                                    
+                                    <div class="row">
+                                      
+                                      <div class="col-lg-12 form-group" >	
+                    
+                                        <dt class="text-center">Portada</dt>
+                                          
+                                          <div class="custom-file">
+                    
+                                            <div class="col-lg-12 mt-2">
+                                              <img src="assets/images/perfil.jpg" width="100%" alt="Gallery thumbnail">
+                                              
+                                            </div>
+                                            
+                                          </div>
+                                          
+                                      </div>
+                                      <a class="btn btn-block btn-outline-success mt-2" [routerLink]="['/usuario/actualizar/', usuario.perCodigo]">Editar</a>
+                    
+                                      <div class="col-lg-12" >
+                                      </div>
+                                    </div>  
+                                  </div>
+                           
+                    
+                                  
+                    
+                    
+                                </div>
+                          </div>
+                    
+                            <br>
+                          <div class="card-footer">
+                              <a class="btn btn-warning" [routerLink]="['/productos']" routerLinkActive="router-link-active" >Regresar</a>
+                          </div>
+                    
+                      </div> 
+                      </ng-container>
+                    
+                      <ng-container *ngIf="usuario.perNombre == undefined || usuario.perNombre == 'null'">
+                        <div class="card-body">
+                          <h3 class="text-center">No se encontró ningún producto</h3>
+                          
+                          <div class="row">
+                              <div class="col-3 mx-auto">
+                                  <img src="assets/images/error.png" alt="" style="width: 90%;">
+                              </div>
+                          </div>
+                        </div>
+                      </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -11,7 +11,7 @@
     <div class="d-flex align-items-center">
         <a class="position-relative">
             <i class="fa fa-shopping-cart fa-2x mr-5 text-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"></i>
-            <div class="cart-no">5</div>
+            <div class="cart-no">{{zapCanasta.length}}</div>
         </a>
         <a class="btn btn-outline-primary" style="margin-left: 25px;" [routerLink]="'/login'" *ngIf="user_role == undefined" id="iSesion">Iniciar sesión</a>
         <div class="dropdown">
@@ -43,7 +43,8 @@
           
         </div>
         
-          <button class="btn btn-block btn-outline-success mb-2" [routerLink]="['/carrito']" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">HACER PEDIDO</button>
+          <button class="btn btn-block btn-outline-success mb-2" [routerLink]="['/carrito']" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" *ngIf="user_id != undefined">HACER PEDIDO</button>
+          <p style="text-align: center;" *ngIf="user_id == undefined" [routerLink]="['/login']" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">Debe iniciar sesión para poder comprar</p>
         
       </div>
    

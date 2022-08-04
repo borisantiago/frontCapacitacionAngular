@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
   selector: 'app-perfil',
@@ -7,15 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
-  usuario:any={};
+  public id:number=0;
+  public usuario:any={};
   public user_id : any = undefined;
 
 
-  
-
-  constructor() {
+  constructor(
+    private _personaService:PersonaService,
+    private _route :ActivatedRoute
+  ) {
     this.user_id = localStorage.getItem('user_id');
-    console.log(this.user_id);
+    this.id=this.user_id;
+
+    
+    
+
+    this._personaService.getPersonaId(this.id).subscribe(
+      response=>{
+        this.usuario = response;
+        console.log(this.usuario);
+        
+      }
+    )
     
    }
 

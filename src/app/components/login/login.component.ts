@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('user_nombre', this.persona.perNombre);
             localStorage.setItem('user_apellido', this.persona.perApellido);
             localStorage.setItem('user_id', this.persona.perCodigo);
-            localStorage.setItem('user_identificación', this.persona.perIdentificacion);
+            localStorage.setItem('user_identificacion', this.persona.perIdentificacion);
             localStorage.setItem('user_direccion', this.persona.perDireccion);
             localStorage.setItem('user_talla', this.persona.perTalla);
             localStorage.setItem('user_genero', this.persona.perGenero);
