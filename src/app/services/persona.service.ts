@@ -27,6 +27,16 @@ export class PersonaService {
     let apiUrl = `${this.endpoint}persona/`+id;
     return this.http.get(apiUrl, id).pipe(catchError(this.error));
    }
+
+   postUpdatePersona(persona:any){
+    let apiUrl = `${this.endpoint}persona/actualizar`;
+    return this.http.post(apiUrl, persona).pipe(catchError(this.error));
+   }
+
+   postCreatePersona(persona:any){
+    let apiUrl = `${this.endpoint}persona/agregar`;
+    return this.http.post(apiUrl, persona).pipe(catchError(this.error));
+   }
    
   error(error: HttpErrorResponse){ 
       let errorMessage = '';

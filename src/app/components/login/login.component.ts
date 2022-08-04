@@ -71,6 +71,15 @@ export class LoginComponent implements OnInit {
           
         });
   
+    }else{
+      iziToast.show({ 
+        title: 'ERROR',
+        titleColor: '#FF0000',
+        color: '#FFF', 
+        class: 'text-danger',
+        position: 'topRight',
+        message: 'Debe completar el campo email y password!'
+      });
     }
     
   }

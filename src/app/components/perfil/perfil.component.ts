@@ -37,4 +37,8 @@ export class PerfilComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  actualizar(id:any){
+
+  }
+
 }

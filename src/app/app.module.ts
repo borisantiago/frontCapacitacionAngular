@@ -17,6 +17,8 @@ import { LoginComponent } from './components/login/login.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { FiltersPipe } from './pipes/filters.pipe';
+import { PerfilUpdateComponent } from './components/perfil/perfil-update/perfil-update.component';
+import { PerfilCreateComponent } from './components/perfil/perfil-create/perfil-create.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { FiltersPipe } from './pipes/filters.pipe';
     LoginComponent,
     PerfilComponent,
     CarritoComponent,
-    FiltersPipe
+    FiltersPipe,
+    PerfilUpdateComponent,
+    PerfilCreateComponent,
   ],
   imports: [
     BrowserModule,

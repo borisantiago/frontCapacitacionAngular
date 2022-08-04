@@ -15,8 +15,6 @@
                 
                                   <div class="col-lg-8">
                                       <div class="row">
-                
-                
                     
                                         <dt class="col-sm-5 ">Nombres:&nbsp;</dt>
                                         <dd class="col-sm-7 font-size-lg"><span style="color: #2E187F;" ><b> {{usuario.perNombre}} {{usuario.perApellido}}</b></span></dd>
@@ -29,7 +27,6 @@
                                         
                                         <dt class="col-sm-5 ">Cedula Identificación:&nbsp;</dt>
                                         <dd class="col-sm-7 font-size-lg"><span style="color: #2E187F;" ><b> {{usuario.perIdentificacion}}</b></span></dd>
-                                        
                     
                                         <dt class="col-sm-5" >Género:&nbsp;</dt>
                                         <dd class="col-sm-7 font-size-lg"><span style="color: #2E187F;"><b > {{usuario.perGenero}}</b></span></dd>
@@ -37,16 +34,18 @@
                                         <dt class="col-sm-5" >Rol:&nbsp;</dt>
                                         <dd class="col-sm-7 font-size-lg"><span style="color: #2E187F;"><b > {{usuario.perRole}}</b></span></dd>
                     
-                    
                                         <dt class="col-sm-5">Talla</dt>
                                         <dd class="col-sm-7 font-size-lg"><span style="color: #2E187F;" ><b> {{usuario.perTalla}}</b></span></dd>
+
+                                        <dt class="col-sm-5">Dirección</dt>
+                                        <dd class="col-sm-7 font-size-lg"><span style="color: #2E187F;" ><b> {{usuario.perDireccion}}</b></span></dd>
                     
                                       </div>
                                 </div>
                                   <div class="col-lg-4">
                                     
                                     <div class="row">
-                                      
+                                    
                                       <div class="col-lg-12 form-group" >	
                     
                                         <dt class="text-center">Portada</dt>
@@ -57,21 +56,14 @@
                                               <img src="assets/images/perfil.jpg" width="100%" alt="Gallery thumbnail">
                                               
                                             </div>
-                                            
                                           </div>
-                                          
                                       </div>
-                                      <a class="btn btn-block btn-outline-success mt-2" [routerLink]="['/usuario/actualizar/', usuario.perCodigo]">Editar</a>
-                    
-                                      <div class="col-lg-12" >
-                                      </div>
+                                      <a class="btn btn-block btn-outline-success mt-2" style="cursor: pointer;" [routerLink]="['/usuario/actualizar/', usuario.perCodigo]">Editar</a>
+                                      
+                                      
                                     </div>  
                                   </div>
-                           
-                    
-                                  
-                    
-                    
+                             
                                 </div>
                           </div>
                     
@@ -94,9 +86,13 @@
                           </div>
                         </div>
                       </ng-container>
+
                 </div>
             </div>
         </div>
     </div>
+
+    
     
 </div>
+
