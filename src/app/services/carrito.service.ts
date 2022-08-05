@@ -26,6 +26,11 @@ export class CarritoService {
       return this.http.get(apiUrl, idPersona).pipe(catchError(this.error));
    }
 
+   postAgregarPedido(pedido:any){
+    let apiUrl = this.endpoint+"pedido/agregar";
+    return this.http.post(apiUrl, pedido).pipe(catchError(this.error))
+   }
+
   
    error(error: HttpErrorResponse){ 
     let errorMessage = '';

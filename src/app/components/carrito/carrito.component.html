@@ -84,7 +84,7 @@
               <div class="bg-secondary rounded mb-5 p-3" >
                 <div class="row">
                   <div class="col-lg-3">
-                    <img src="assets/img/carrito-de-compras.png" alt="" style="width: 100%;">
+                    <img src="assets/images/carrito-de-compras.png" alt="" style="width: 100%;">
                     
                   </div>
                   <div class="col-lg-9" style="display: flex !important; align-items: center !important;">
@@ -147,8 +147,8 @@
                       <div class="accordion-heading custom-control custom-radio" data-toggle="collapse" data-target="#cc-card">
                         <input type="radio" class="custom-control-input" id="cc" name="payment" checked>
                         <label for="cc" class="custom-control-label d-flex align-items-center">
-                          <strong class="d-block mr-3">Credit card</strong>
-                          <img src="assets/img/cards.png" width="108" alt="Credit cards">
+                          <strong class="d-block mr-3">Credit card &nbsp;</strong>
+                          <img src="assets/images/vm.png" width="108" alt="Credit cards">
                         </label>
                       </div>
                     </div>
@@ -189,12 +189,7 @@
 
             <hr class="mb-4 pb-2">
 
-            <!-- Additional info -->
-            <h2 class="h4 mb-4">5. Información adicional (opcional)</h2>
-            <div class="form-group">
-              <label for="ch-notes">Mensajej</label>
-              <textarea id="ch-notes" class="form-control form-control-lg" rows="5" placeholder="Mensaje" name="nota" ></textarea>
-            </div>
+            
           </div>
 
 
@@ -214,8 +209,8 @@
                       <span class="font-weight-bold">${{carrito.pedSubtotal}}</span>
                     </li>
                     <li class="d-flex justify-content-between mb-2">
-                      <span>Envio:</span>
-                      <span>$5</span>
+                      <span>IVA 12%</span>
+                      <span>${{carrito.pedIva}}</span>
                     </li>
                     
                     
@@ -226,7 +221,7 @@
                   </div>
                 </div>
                 <ng-container >
-                  <button  type="button" class="btn btn-primary btn-lg btn-block" >Completar order</button>
+                  <button  type="button" class="btn btn-primary btn-lg btn-block" (click)="crearPedido()">Completar order</button>
               
                   <button   type="button" class="btn btn-secondary btn-lg btn-block">
                     <span class="spinner-grow spinner-grow-sm me-2" role="status" aria-hidden="true"></span>

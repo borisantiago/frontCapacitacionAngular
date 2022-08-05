@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarritoService } from 'src/app/services/carrito.service';
+declare var iziToast:any;
 
 @Component({
   selector: 'app-carrito',
@@ -8,12 +9,13 @@ import { CarritoService } from 'src/app/services/carrito.service';
 })
 export class CarritoComponent implements OnInit {
 
-  public carrito:any={};
+  
   public user_id : any = undefined;
   public user_nombre : any = undefined;
   public user_apellido : any = undefined;
   public user_direccion : any = undefined;
   public user_identificacion : any = undefined;
+  public carrito:any={};
 
   constructor(
     private _carritoService: CarritoService,
@@ -25,12 +27,19 @@ export class CarritoComponent implements OnInit {
     this.user_direccion = localStorage.getItem('user_direccion');
     this.user_identificacion = localStorage.getItem('user_identificacion');
 
+    this.carrito={
+      pedIva : 12,
+      pedFactura : "FACT-1003",
+      perCodigo: this.user_id
+      
+    };
+    console.log(this.carrito);
 
     if(this.user_id != undefined){
       this._carritoService.getProductosCarrito(this.user_id).subscribe(
         response=>{
-          this.carrito = response;
-          console.log(this.carrito);
+          // this.carrito = response;
+          // console.log(this.carrito);
         });
     }
   }
@@ -39,6 +48,26 @@ export class CarritoComponent implements OnInit {
   }
   eliminar_item(id:any){
 
+  }
+
+  crearPedido(){
+    this._carritoService.postAgregarPedido(this.carrito).subscribe(
+      response=>{
+        console.log(response);
+        iziToast.show({ 
+          title: 'SUCCESS',
+          titleColor: '#1DC74C',
+          color: '#FFF',
+          class: 'text-success',
+          position: 'topRight',
+          message: 'Pedido realizado con existo!'
+        });
+        
+      },error=>{
+        console.log("Error");
+        
+      }
+    )
   }
 
 }
