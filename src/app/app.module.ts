@@ -19,6 +19,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { FiltersPipe } from './pipes/filters.pipe';
 import { PerfilUpdateComponent } from './components/perfil/perfil-update/perfil-update.component';
 import { PerfilCreateComponent } from './components/perfil/perfil-create/perfil-create.component';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { PerfilCreateComponent } from './components/perfil/perfil-create/perfil-
     FiltersPipe,
     PerfilUpdateComponent,
     PerfilCreateComponent,
+    PedidosComponent,
   ],
   imports: [
     BrowserModule,

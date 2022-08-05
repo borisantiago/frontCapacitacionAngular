@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { PerfilCreateComponent } from './components/perfil/perfil-create/perfil-create.component';
 import { PerfilUpdateComponent } from './components/perfil/perfil-update/perfil-update.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
@@ -19,7 +20,7 @@ const routes: Routes = [
   {path:'usuario/:id', component: PerfilComponent},
   {path:'usuario/actualizar/:perCodigo', component: PerfilUpdateComponent},
   {path:'usuarios/registro', component: PerfilCreateComponent},
-
+  {path:'usuario_pedido/:perCodigo', component: PedidosComponent},
 
   {path:'carrito', component: CarritoComponent},
 

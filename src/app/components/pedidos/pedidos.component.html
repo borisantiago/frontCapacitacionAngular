@@ -1,0 +1,88 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-10 centrar" >
+            <div class="card">
+                <div class="card-body">
+                    <ng-container  *ngFor="let item of pedidos">
+                        <div class="card box-shadow-sm">
+                          <div class="card-header">
+                              <h5 style="margin-bottom: 0px;">Ver Información</h5>
+                          </div>
+                          
+                          <div class="card-body" >
+                
+                            <div class="row" >
+                              <div class="col-lg-6" >
+                                <table class="table mb-0">
+                                  <tbody>
+                                    <tr>
+                                      <th class="border-0 py-2 pl-0">Estado:</th>
+                                      <td class="border-0 py-2 pl-0" style="color: rgb(25, 13, 109);" *ngIf="item.pedEstado == 'Gestionando'"><b>{{item.pedEstado | uppercase}}</b></td>
+                                      <td class="border-0 py-2 pl-0" style="color: rgb(6, 123, 2);" *ngIf="item.pedEstado == 'Enviado'"><b>{{item.pedEstado | uppercase}}</b></td>
+                                    </tr>
+                                    <tr>
+                                      <th class="border-0 py-2 pl-0">N° Factura:</th>
+                                      <td class="border-0 py-2 px-0 text-muted">{{item.pedFactura}}</td>
+                                    </tr>
+                                    <tr>
+                                      <th class="border-0 py-2 pl-0">Fecha:</th>
+                                      <td class="border-0 py-2 px-0 text-muted">{{item.pedFecha}}</td>
+                                    </tr>
+                                   
+                                  </tbody>
+                                </table>
+                              </div>
+                              <div class="col-lg-6">
+                                <table class="table mb-0">
+                                  <tbody>
+                                  
+                                    <tr>
+                                      <th class="border-0 py-2 pl-0">Iva:</th>
+                                      <td class="border-0 py-2 px-0 text-muted">{{item.pedIva}}</td>
+                                    </tr>
+                                    <tr>
+                                      <th class="border-0 py-2 pl-0">Destinatario:</th>
+                                      <td class="border-0 py-2 px-0 text-muted">{{user_nombre}} {{user_apellido}}</td>
+                                    </tr>
+                                    <tr>
+                                      <th class="border-0 py-2 pl-0">Dirección:</th>
+                                      <td class="border-0 py-2 px-0 text-muted">{{user_direccion}}</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                    
+                            <br>
+                          
+                    
+                      </div> 
+                      </ng-container>
+
+                      <div class="card-footer">
+                        <a class="btn btn-warning" [routerLink]="['/productos']" routerLinkActive="router-link-active" >Regresar</a>
+                    </div>
+                    
+                      <ng-container *ngIf="pedidos.length == 0">
+                        <div class="card-body">
+                          <h3 class="text-center">No se encontró ningún producto</h3>
+                          
+                          <div class="row">
+                              <div class="col-3 mx-auto">
+                                  <img src="assets/images/error.png" alt="" style="width: 90%;">
+                              </div>
+                          </div>
+                        </div>
+                      </ng-container>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+</div>
+

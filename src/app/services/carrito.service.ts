@@ -28,10 +28,14 @@ export class CarritoService {
 
    postAgregarPedido(pedido:any){
     let apiUrl = this.endpoint+"pedido/agregar";
-    return this.http.post(apiUrl, pedido).pipe(catchError(this.error))
+    return this.http.post(apiUrl, pedido).pipe(catchError(this.error));
    }
 
-  
+   getPedidos(idPersona:any){
+    let apiUrl = this.endpoint+"pedido/persona/"+idPersona;
+    return this.http.get(apiUrl, idPersona).pipe(catchError(this.error));
+   }
+
    error(error: HttpErrorResponse){ 
     let errorMessage = '';
     if(error.error instanceof ErrorEvent){

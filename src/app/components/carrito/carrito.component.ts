@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CarritoService } from 'src/app/services/carrito.service';
 declare var iziToast:any;
 
@@ -19,6 +20,7 @@ export class CarritoComponent implements OnInit {
 
   constructor(
     private _carritoService: CarritoService,
+    private _router:Router
   ) { 
 
     this.user_nombre = localStorage.getItem('user_nombre');
@@ -62,6 +64,9 @@ export class CarritoComponent implements OnInit {
           position: 'topRight',
           message: 'Pedido realizado con existo!'
         });
+
+        this._router.navigate(['/usuario_pedido/', this.user_id]);
+
         
       },error=>{
         console.log("Error");
