@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { ProductosService } from 'src/app/services/productos.service';
 declare var iziToast:any;
@@ -17,7 +18,8 @@ export class ProductosComponent implements OnInit {
 
   constructor(
     private _productoService : ProductosService,
-    private _carritoService: CarritoService
+    private _carritoService: CarritoService,
+    private _router:Router
   ) {
     this.user_id = localStorage.getItem('user_id');
     
@@ -40,20 +42,36 @@ export class ProductosComponent implements OnInit {
     }
     
     console.log(data);
-    
-    this._carritoService.postAgregarCarrito(data).subscribe(
-      response => {
-        console.log(response);
-        iziToast.show({
-          title: 'SUCCESS',
-          titleColor: '#1DC74C',
-          color: '#FFF',
-          class: 'text-success',
-          position: 'topLeft',
-          message: 'Se agrego correctamente el producto al carrito.'
+
+    if(this.user_id != undefined){
+      this._carritoService.postAgregarCarrito(data).subscribe(
+        response => {
+          console.log(response);
+          iziToast.show({
+            title: 'SUCCESS',
+            titleColor: '#1DC74C',
+            color: '#FFF',
+            class: 'text-success',
+            position: 'topLeft',
+            message: 'Se agrego correctamente el producto al carrito.'
+          });
         });
-      }
-    )
+    }else{
+      iziToast.show({ 
+        title: 'ERROR',
+        titleColor: '#FF0000',
+        color: '#FFF', 
+        class: 'text-danger',
+        position: 'topRight',
+        message: 'Debe iniciar sesion para agregar producto en carito!'
+      });
+      
+
+      this._router.navigate(['/login']);
+
+    }
+    
+    
 
     
   }
