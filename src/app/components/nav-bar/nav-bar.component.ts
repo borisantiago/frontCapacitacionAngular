@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarritoService } from 'src/app/services/carrito.service';
+declare var iziToast:any;
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -39,9 +41,20 @@ export class NavBarComponent implements OnInit {
   }
 
   logout(){
-    window.location.reload();
+    
     localStorage.clear();
-    this._router.navigate(['/#']);
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
+    this._router.navigate(['/']);
+    iziToast.show({
+      title: 'SUCCESS',
+      titleColor: '#1DC74C',
+      color: '#FFF',
+      class: 'text-success',
+      position: 'topRight',
+      message: 'Sesión cerrada con exito!'
+    });
   }
 
 

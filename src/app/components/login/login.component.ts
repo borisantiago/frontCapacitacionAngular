@@ -41,6 +41,13 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('user_genero', this.persona.perGenero);
             localStorage.setItem('user_email', this.persona.perEmail);
             
+            
+            
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000); 
+            this._router.navigate(['/productos']);
+
             iziToast.show({
               title: 'SUCCESS',
               titleColor: '#1DC74C',
@@ -49,11 +56,7 @@ export class LoginComponent implements OnInit {
               position: 'topRight',
               message: 'Se inicio correctamente la sesión'
             });
-            
-            setTimeout(() => {
-              window.location.reload();
-            }, 500); 
-            this._router.navigate(['/productos']);
+
             
           }else{
             iziToast.show({ 
