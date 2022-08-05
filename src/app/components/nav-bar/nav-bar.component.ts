@@ -41,7 +41,7 @@ export class NavBarComponent implements OnInit {
   logout(){
     window.location.reload();
     localStorage.clear();
-    this._router.navigate(['']);
+    this._router.navigate(['/#']);
   }
 
 
